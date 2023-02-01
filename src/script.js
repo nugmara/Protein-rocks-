@@ -28,9 +28,17 @@ const bajarPollito = (event) => {
     }
 }
 const subePollito = (event) => {
-    if (event.code === "ArrowUp") {
+    if (event.code === "Space") {
         game.dwayne.jumpPollito()
     }
+}
+
+const originalPollito = (event) => {
+    if (event.code === "ArrowUp"){
+        game.dwayne.subirPollito()
+       
+    }
+    
 }
 
 // ADD EVENT LISTENERS
@@ -40,4 +48,4 @@ window.addEventListener("keydown", moverDwayneDer);
 window.addEventListener("keydown", moveDwayneIzq);
 window.addEventListener("keydown", subePollito);
 window.addEventListener("keydown", bajarPollito)
-
+window.addEventListener("keydown", originalPollito)

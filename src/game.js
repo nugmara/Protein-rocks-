@@ -9,21 +9,24 @@ class Game {
     this.time = 0;
     this.kevinArr = [];
     this.money = new MoneyBonus();
-    this.fishObstacle = new Fish()
     this.score = 0;
     this.moneyArr = [];
     this.lives = 3;
     this.gameOn = true;
     this.platformNumber = 5;
-   
+    
+    
     //this.timer = Date.now()
   }
   drawBackground = () => {
-    ctx.drawImage(this.background, 0, 0, canvas.width, canvas.height) 
-  };
+    ctx.drawImage(this.background, 0, 0, canvas.width, canvas.height);
+  }
   aLotOfProteins = () => {
     let aLotOfThem = new Protein();
     this.proteinArr.push(aLotOfThem);
+    setTimeout(() => {
+      
+    })
   };
   aLotOfkevin = () => {
     let aLotOfkevin = new Kevin();
@@ -100,6 +103,9 @@ class Game {
       this.dwayne.y = 0;
     }
   };
+  removeProtein = () => {
+
+  }
   gameOver = () => {
     this.gameOn = false;
     canvas.style.display = "none";
@@ -110,7 +116,7 @@ class Game {
   };
   gameLoop = () => {
     this.clearRect();
-    this.drawBackground();
+    this.drawBackground()
     this.dwayne.update();
     this.dwayne.drawDwayne();
     this.time += 16;
@@ -128,7 +134,7 @@ class Game {
       this.aLotOfkevin();
     }
     this.moneyArr.forEach((money) => {
-      money.drawImageChatacters();
+      money.drawImageCharacters();
       money.charactersMove();
     });
     if (this.time % 5000 === 0) {
@@ -143,3 +149,4 @@ class Game {
     this.drawScoreBad();
   };
 }
+

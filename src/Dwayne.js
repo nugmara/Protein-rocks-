@@ -1,6 +1,6 @@
 class Dwayne {
   constructor() {
-    this.x = 500;
+    this.x = 10;
     this.y = 100;
     this.h = 168.7;
     this.w = 112.5;
@@ -27,9 +27,12 @@ class Dwayne {
     this.y -= this.speedY;
     this.speedY = -this.jumpSpeed;
   };
-  /*bajarPollito = () => {
-        this.y += this.speedY
-    }*/
+  bajarPollito = () => {
+    this.h = 84.35
+  };
+  subirPollito = () => {
+    this.h = 168.7
+  };
   update = () => {
     this.y += this.speedY;
     if (this.y + this.h + this.speedY <= canvas.height)
