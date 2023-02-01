@@ -13,11 +13,9 @@ class Game {
     this.moneyArr = [];
     this.lives = 3;
     this.gameOn = true;
-    this.platformNumber = 5;
-    
-    
     //this.timer = Date.now()
   }
+  
   drawBackground = () => {
     ctx.drawImage(this.background, 0, 0, canvas.width, canvas.height);
   }
@@ -25,8 +23,11 @@ class Game {
     let aLotOfThem = new Protein();
     this.proteinArr.push(aLotOfThem);
     setTimeout(() => {
-      
-    })
+      if (!aLotOfThem.collected) {
+        let index = this.proteinArr.indexOf(aLotOfThem)
+        this.proteinArr.splice(index, 1)
+      }
+    }, 3000)
   };
   aLotOfkevin = () => {
     let aLotOfkevin = new Kevin();
@@ -103,13 +104,12 @@ class Game {
       this.dwayne.y = 0;
     }
   };
-  removeProtein = () => {
-  }
+
   gameOver = () => {
     this.gameOn = false;
     canvas.style.display = "none";
-    gameOverScreenDOM.style.display = "flex";
-  };
+    gameOverScreenDOM.style.display = "block";
+  }
   clearRect = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };

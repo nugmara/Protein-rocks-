@@ -5,8 +5,6 @@ const gameOverScreenDOM = document.querySelector("#game-over");
 const restartBtnDOM = document.querySelector("#restart-game");
 const ctx = canvas.getContext("2d");
 let game;
-this.framesTotal = 4;
-this.currentFrames = 0;
 
 const startGame = () => {
   portadaDOM.style.display = "none";
@@ -15,8 +13,9 @@ const startGame = () => {
   setInterval(game.gameLoop, 1000 / 60);
 };
 const endGame = () => {
-    restartBtnDOM.style.display = "none";
+    gameOverScreenDOM.style.display = "none"
     portadaDOM.style.display = "block"
+    startGame()
 }
 const moverDwayneDer = (event) => {
   if (event.code === "ArrowRight") game.dwayne.movimientoDerecha();

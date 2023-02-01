@@ -42,4 +42,18 @@ class Dwayne {
       this.y = canvas.height - this.h;
     }
   };
+    reset = () => {
+      this.x = 10;
+      this.y = 100;
+      this.h = 168.7;
+      this.w = 112.5;
+      this.jumpSpeed = 10;
+      this.speedX = 15;
+      this.speedY = 15;
+      this.img = new Image();
+      this.img.src = "./images/5ff4a4081bccdc0c963b67d5_shazam (1).png";
+      this.gravity = 0.5;
+    }
+    
+  
 }
