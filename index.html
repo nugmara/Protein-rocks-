@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="contenedor">
+      <!-- SPLASH SCREEN -->
+      <div id="portada-de-inicio" class="contenedor">
+        <div>
+          <img
+            src="./images/portada.png"
+            width="700"
+            height="700"
+            alt="scooby-doo-fat"
+          />
+          <button id="start-game">
+            <img
+              src="./images/6302fab9cf4c06f85f8ac6088cabd466.png"
+              width="287.5"
+              height="32.5"
+              alt="snack-scoobyDoo"
+            />
+          </button>
+        </div>
+
+        <!--<button id="how-to-play">
+            <img src="./images/coollogo_com-22190760.png" width="250" alt="how-to-play"/>
+        </button> -->
+      </div>
+
+      <!-- GAME SCREEN -->
+      <canvas id="canvas-screen" width="966" height="670"></canvas>
+      <!--<button id="pause"></button>-->
+
+      <!-- GAME-OVER SCREEN -->
+      <div id="game-over" class="contenedor">
+        <img />
+        <!-- Cuando tengamos la imagen meterla aqui-->
+        <button id="restart-game">Play again!</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./game.js"></script>
+    <script src="./Dwayne.js"></script>
+    <script src="./Kevin.js"></script>
+    <script src="./protein.js"></script>
+    <script src="./moneyBonus.js"></script>
+    <script src="./healthBar.js"></script>
+    <script src="./fishObstacle.js"></script>
+  </body>
 </html>
