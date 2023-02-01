@@ -104,7 +104,6 @@ class Game {
     }
   };
   removeProtein = () => {
-
   }
   gameOver = () => {
     this.gameOn = false;
