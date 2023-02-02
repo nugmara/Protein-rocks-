@@ -1,7 +1,7 @@
 class Game {
   constructor() {
     this.background = new Image();
-    this.background.src = "./images/fondo.jpg";
+    this.background.src = "./images/streesBG.jpg";
     this.dwayne = new Dwayne();
     this.kevin = new Kevin();
     this.protein = new Protein();
@@ -11,23 +11,36 @@ class Game {
     this.money = new MoneyBonus();
     this.score = 0;
     this.moneyArr = [];
-    this.lives = 3;
+    this.lives = 5;
     this.gameOn = true;
-    //this.timer = Date.now()
+    this.health = 100;
+    this.moreHealth = 20;
+    this.noHealth = 5;
+    this.mySound = new Audio("./proteinRocks!.mp3");
+    this.mySound2 = new Audio("./moneySoundEffect.mp3");
+    this.mySound3 = new Audio("./gameOverSound.mp3");
+    this.myBGSound = new Audio("./miitomoSongBG.mp3");
   }
-  
+
   drawBackground = () => {
     ctx.drawImage(this.background, 0, 0, canvas.width, canvas.height);
-  }
+  };
   aLotOfProteins = () => {
     let aLotOfThem = new Protein();
     this.proteinArr.push(aLotOfThem);
     setTimeout(() => {
       if (!aLotOfThem.collected) {
-        let index = this.proteinArr.indexOf(aLotOfThem)
-        this.proteinArr.splice(index, 1)
+        this.health -= this.noHealth;
+        if (this.health === 0) {
+          this.gameOver();
+          this.mySound3.play();
+        }
+        let index = this.proteinArr.indexOf(aLotOfThem);
+        this.proteinArr.splice(index, 1);
+      } else {
+        this.health += this.moreHealth;
       }
-    }, 3000)
+    }, 5000);
   };
   aLotOfkevin = () => {
     let aLotOfkevin = new Kevin();
@@ -36,6 +49,9 @@ class Game {
   aLotOfMoney = () => {
     let aLotOfMoney = new MoneyBonus();
     this.moneyArr.push(aLotOfMoney);
+    if (!aLotOfMoney.collected) {
+      this.health += this.moreHealth;
+    }
   };
   drawScore = () => {
     ctx.font = "24px Arial";
@@ -43,9 +59,19 @@ class Game {
     ctx.fillText(`Score: ${this.score}`, 10, 30);
   };
   drawScoreBad = () => {
-    ctx.font = "24px Arial";
+    ctx.font = "24px serif";
     ctx.fillStyle = "black";
-    ctx.fillText(`Don't run my man! ${this.lives}`, 10, 80);
+    ctx.fillText(`Don't run my man! ${this.lives}`, 10, 60);
+  };
+  drawHealth = () => {
+    ctx.fillStyle = "green";
+    if (this.health <= 60) {
+      ctx.fillStyle = "orange";
+    }
+    if (this.health <= 40) {
+      ctx.fillStyle = "red";
+    }
+    ctx.fillRect(520, 20, this.health, 20);
   };
   collisionproteinWithDwayne = () => {
     this.proteinArr.forEach((protein, index) => {
@@ -57,6 +83,7 @@ class Game {
       ) {
         this.proteinArr.splice(index, 1);
         this.score += 10;
+        this.mySound.play();
       }
     });
   };
@@ -73,6 +100,7 @@ class Game {
         this.lives -= 1;
         if (this.lives === 0) {
           this.gameOver();
+          this.mySound3.play();
         }
       }
     });
@@ -87,6 +115,7 @@ class Game {
       ) {
         this.moneyArr.splice(index, 1);
         this.score += 15;
+        this.mySound2.play();
       }
     });
   };
@@ -104,48 +133,63 @@ class Game {
       this.dwayne.y = 0;
     }
   };
-
+  collisionMoneyWithGround = () => {
+    if (this.money.y + this.money.h > canvas.height) {
+      this.money.y = canvas.height - this.money.h;
+    }
+  };
   gameOver = () => {
     this.gameOn = false;
     canvas.style.display = "none";
     gameOverScreenDOM.style.display = "block";
-  }
-  clearRect = () => {
+  };
+  clearCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
   gameLoop = () => {
-    this.clearRect();
-    this.drawBackground()
-    this.dwayne.update();
-    this.dwayne.drawDwayne();
+    this.clearCanvas();
+    //this.myBGSound.play()
+    // this.dwayne.update();
     this.time += 16;
     if (this.time % 1000 === 0) {
       this.aLotOfProteins();
     }
-    this.proteinArr.forEach((protein) => {
-      protein.drawProtein();
-    });
     this.kevinArr.forEach((kevin) => {
-      kevin.drawKevin();
       kevin.charactersMove();
     });
     if (this.time % 300 === 0) {
       this.aLotOfkevin();
     }
     this.moneyArr.forEach((money) => {
-      money.drawImageCharacters();
       money.charactersMove();
     });
-    if (this.time % 5000 === 0) {
-      this.aLotOfMoney();
+    if (this.time % 3000 === 0) {
+      this.aLotOfMoney(); //pasarlo
     }
     this.collisionproteinWithDwayne();
     this.collisionkevinWithDwayne();
     this.collisionMoneyWithDwayne();
     this.coliisionWithWallSide();
     this.collisionWithWallUpnDown();
+    this.collisionMoneyWithGround();
+    this.drawBackground();
+    this.dwayne.drawDwayne();
+    this.proteinArr.forEach((protein) => {
+      protein.drawProtein();
+    });
+    
+    this.kevinArr.forEach((kevin) => {
+      kevin.drawKevin();
+    });
+    this.moneyArr.forEach((money) => {
+      
+      money.drawImageCharacters();
+    });
     this.drawScore();
     this.drawScoreBad();
+    this.drawHealth();
+    if (this.gameOn === true) {
+      requestAnimationFrame(this.gameLoop);
+    }
   };
 }
-

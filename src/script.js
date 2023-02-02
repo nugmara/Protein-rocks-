@@ -10,13 +10,12 @@ const startGame = () => {
   portadaDOM.style.display = "none";
   canvas.style.display = "block";
   game = new Game();
-  setInterval(game.gameLoop, 1000 / 60);
+  game.gameLoop()
 };
 const endGame = () => {
-    gameOverScreenDOM.style.display = "none"
-    portadaDOM.style.display = "block"
-    startGame()
-}
+  gameOverScreenDOM.style.display = "none";
+  portadaDOM.style.display = "block";
+};
 const moverDwayneDer = (event) => {
   if (event.code === "ArrowRight") game.dwayne.movimientoDerecha();
 };
@@ -24,18 +23,23 @@ const moveDwayneIzq = (event) => {
   if (event.code === "ArrowLeft") game.dwayne.movimientoIzquierda();
 };
 const bajarPollito = (event) => {
-  if (event.code === "ArrowDown") {
+  if (event.code === "KeyS") {
     game.dwayne.bajarPollito();
   }
 };
 const subePollito = (event) => {
-  if (event.code === "Space") {
+  if (event.code === "ArrowUp") {
     game.dwayne.jumpPollito();
   }
 };
 const originalPollito = (event) => {
-  if (event.code === "ArrowUp") {
+  if (event.code === "Space") {
     game.dwayne.subirPollito();
+  }
+};
+const movimientoAbajoDwayne = (event) => {
+  if (event.code === "ArrowDown") {
+    game.dwayne.movimientoAbajo();
   }
 };
 
@@ -47,4 +51,5 @@ window.addEventListener("keydown", moveDwayneIzq);
 window.addEventListener("keydown", subePollito);
 window.addEventListener("keydown", bajarPollito);
 window.addEventListener("keydown", originalPollito);
+window.addEventListener("keydown", movimientoAbajoDwayne);
 restartBtnDOM.addEventListener("click", endGame);
