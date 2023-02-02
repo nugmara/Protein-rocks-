@@ -2,7 +2,7 @@ const canvas = document.querySelector("#canvas-screen");
 const kickOffBtnDOM = document.querySelector("#start-game");
 const portadaDOM = document.querySelector("#portada-de-inicio");
 const gameOverScreenDOM = document.querySelector("#game-over");
-const restartBtnDOM = document.querySelector("#restart-game");
+const endBtnDOM = document.querySelector("#end-game");
 const ctx = canvas.getContext("2d");
 let game;
 
@@ -10,46 +10,46 @@ const startGame = () => {
   portadaDOM.style.display = "none";
   canvas.style.display = "block";
   game = new Game();
-  game.gameLoop()
+  game.gameLoop();
 };
 const endGame = () => {
   gameOverScreenDOM.style.display = "none";
   portadaDOM.style.display = "block";
 };
-const moverDwayneDer = (event) => {
-  if (event.code === "ArrowRight") game.dwayne.movimientoDerecha();
+const moveRight = (event) => {
+  if (event.code === "ArrowRight") 
+  game.dwayne.rightMovement();
 };
-const moveDwayneIzq = (event) => {
-  if (event.code === "ArrowLeft") game.dwayne.movimientoIzquierda();
+const moveLeft = (event) => {
+  if (event.code === "ArrowLeft") 
+  game.dwayne.leftMovement();
 };
-const bajarPollito = (event) => {
+const bend = (event) => {
   if (event.code === "KeyS") {
-    game.dwayne.bajarPollito();
+    game.dwayne.bendMovement();
   }
 };
-const subePollito = (event) => {
+const moveUp = (event) => {
   if (event.code === "ArrowUp") {
-    game.dwayne.jumpPollito();
+    game.dwayne.upMovement();
   }
 };
-const originalPollito = (event) => {
+const standUp = (event) => {
   if (event.code === "Space") {
-    game.dwayne.subirPollito();
+    game.dwayne.standUpMovement();
   }
 };
-const movimientoAbajoDwayne = (event) => {
+const moveDown = (event) => {
   if (event.code === "ArrowDown") {
-    game.dwayne.movimientoAbajo();
+    game.dwayne.downMovement();
   }
 };
-
 // ADD EVENT LISTENERS
-
 kickOffBtnDOM.addEventListener("click", startGame);
-window.addEventListener("keydown", moverDwayneDer);
-window.addEventListener("keydown", moveDwayneIzq);
-window.addEventListener("keydown", subePollito);
-window.addEventListener("keydown", bajarPollito);
-window.addEventListener("keydown", originalPollito);
-window.addEventListener("keydown", movimientoAbajoDwayne);
-restartBtnDOM.addEventListener("click", endGame);
+window.addEventListener("keydown", moveRight);
+window.addEventListener("keydown", moveLeft);
+window.addEventListener("keydown", moveUp);
+window.addEventListener("keydown", bend);
+window.addEventListener("keydown", standUp);
+window.addEventListener("keydown", moveDown);
+endBtnDOM.addEventListener("click", endGame);

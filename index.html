@@ -9,53 +9,32 @@
   </head>
   <body>
     <div id="mainBackground"></div>
-    
-    
-
     <div class="contenedor">
       <!-- SPLASH SCREEN -->
       <div id="portada-de-inicio" class="contenedor">
-        <div>
-          <img
-            src="./images/portada.png"
-            width="500"
-            height="500"
-            alt="scooby-doo-fat"
-          />
-          <button id="start-game">
-            <img
-              src="./images/6302fab9cf4c06f85f8ac6088cabd466.png"
-              width="287.5"
-              height="32.5"
-              alt="snack-scoobyDoo"
-            />
-          </button>
-        </div>
-
-        <!--<button id="how-to-play">
-            <img src="./images/coollogo_com-22190760.png" width="250" alt="how-to-play"/>
-        </button> -->
+        <img class="protein" src="./images/proteinRocksTitle.png" />
+        <img src="./images/gameInstructions.png" width="400" height="350" />
+        <button id="start-game">
+          <img src="./images/startButton.png" width="345" />
+        </button>
       </div>
-
       <!-- GAME SCREEN -->
-      <canvas id="canvas-screen" width="640" height="360"></canvas>
-      <!--<button id="pause"></button>-->
-
+      <canvas id="canvas-screen" width="760" height="400"></canvas>
       <!-- GAME-OVER SCREEN -->
       <div id="game-over" class="contenedor">
-        <img src="./images/gameoverphrase.jpg"/>
-        <button id="restart-game">Play again!</button>
+        <img id="laRoca" src="./images/rockCrying.png" width="300" />
+        <button id="end-game">
+          <img src="./images/endGameButton.png" />
+        </button>
       </div>
     </div>
 
     <script src="./src/script.js"></script>
     <script src="./src/game.js"></script>
     <script src="./src/Dwayne.js"></script>
-    <script src="./src/Kevin.js"></script>
+    <script src="./src/Pizza.js"></script>
     <script src="./src/protein.js"></script>
-    <script src="./src/moneyBonus.js"></script>
-    <script src="./src/healthBar.js"></script>
-    
 
+    <script src="./src/frenchToast.js"></script>
   </body>
 </html>

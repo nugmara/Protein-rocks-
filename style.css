@@ -1,56 +1,68 @@
-
-#mainBackground{
-    background-image: url("./images/streesBG.jpg");
-    height: 97vh;
+html {
+  background: url(images/backgroundHTML.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
 #canvas-screen {
-    display: none;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%);
-    position:absolute;
+  display: none;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
-img {
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%);
-    position:absolute;
+#portada-de-inicio {
+  left: 50% !important;
+  top: 100% !important;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.protein {
+  left: 50% !important;
+  top: -10% !important;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 #game-over {
-    display: none;
+  display: none;
 }
 #start-game {
-    border: 0;
-    appearance: none;
-    background-color: inherit;
-    transition: 0.7s ease-out;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
 }
 #start-game:hover {
-    transform: scale(1.5);
+  filter: grayscale(100%);
+  transform: translate(-50%, -50%) scale(1.2);
 }
-
 div > #start-game {
-    position: absolute;
-    top: 300px; 
-    right: 750px;
-    cursor: pointer;
+  left: 50% !important;
+  top: -90% !important;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
-
-#restart-game {
-    border: 0;
-    appearance: none;
-    background-color: inherit;
-    transition: 0.7s ease-out;
+#end-game {
+  border: 0;
+  appearance: none;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
 }
-
-#restart-game:hover {
-    transform: scale(1.5);
+#end-game:hover {
+  transform: translate(-50%, -50%) scale(1.2);
 }
-
-div > #restart-game {
-    position: absolute;
-    top: 600px; 
-    right: 1000px;
-    cursor: pointer;
+div > #end-game {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  cursor: pointer;
+}
+#laRoca {
+  left: 50% !important;
+  top: 70% !important;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
