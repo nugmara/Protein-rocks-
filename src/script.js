@@ -6,6 +6,7 @@ const endBtnDOM = document.querySelector("#end-game");
 const ctx = canvas.getContext("2d");
 let game;
 
+
 const startGame = () => {
   portadaDOM.style.display = "none";
   canvas.style.display = "block";

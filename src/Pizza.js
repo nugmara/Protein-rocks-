@@ -7,10 +7,8 @@ class Pizza {
     this.speed = 5;
     this.image = new Image();
     this.image.src = "./images/pizzaCharacter.png";
-    this.isFlying = false;
-    this.shouldAppear = false;
   }
-  drawKevin = () => {
+  drawPizza = () => {
     ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
   };
   charactersMove = () => {

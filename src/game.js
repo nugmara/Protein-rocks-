@@ -103,7 +103,7 @@ class Game {
           this.health -= this.lessHealth;
         }
         if (this.health === 0) {
-          this.mySound2.play()
+          this.mySound3.play()
           this.gameOver();
         }
       }
@@ -150,20 +150,18 @@ class Game {
     if (this.time % 500 === 0) {
       this.frenchToastAppears();
     }
-
     this.collisionProteinWithDwayne();
     this.collisionPizzaWithDwayne();
     this.collisionToastWithDwayne();
     this.collisionDwayneWithSideWalls();
     this.collisionDwayneWithUpAndDownWalls();
-
     this.drawBackground();
     this.dwayne.drawDwayne();
     this.proteinArr.forEach((protein) => {
       protein.drawProtein();
     });
     this.pizzaArr.forEach((pizza) => {
-      pizza.drawKevin();
+      pizza.drawPizza();
     });
     this.frenchToastArr.forEach((frenchToast) => {
       frenchToast.drawToast();

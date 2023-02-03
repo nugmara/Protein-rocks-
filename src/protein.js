@@ -8,7 +8,7 @@ class Protein {
     this.image = new Image();
     this.image.src = "./images/proteinCharacter.png";
     this.collected = false;
-    this.proteinOnScreen = false;
+    //this.proteinOnScreen = false;
   }
   drawProtein = () => {
     ctx.drawImage(this.image, this.x, this.y, this.w, this.h);

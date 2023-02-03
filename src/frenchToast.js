@@ -4,7 +4,7 @@ class Toast {
     this.w = 80.7;
     this.x = canvas.width + 100;
     this.y = Math.random() * (canvas.height - this.h);
-    this.speed = 3;
+    this.speed = 6;
     this.image = new Image();
     this.image.src = "./images/frenchToastCharacter.png";
   }

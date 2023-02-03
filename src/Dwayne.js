@@ -6,7 +6,7 @@ class Dwayne {
     this.w = 56.25;
     this.jumpSpeed = 10;
     this.speedX = 15;
-    this.speedY = 15;
+    this.speedY = 15; //tenemos más de una velocidad por si queremos cambiar a que el jugador salte en vez de moverlo hacia arriba
     this.img = new Image();
     this.img.src = "./images/mainCharacter.png";
     this.gravity = 0.5;
