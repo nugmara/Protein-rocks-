@@ -1,4 +1,3 @@
-NOTE: to copy this readme structure simply click on RAW on the top right of this gist. There you have the content in the basic Markdown syntax used in readme files. Then paste it on a README.md file in your repository. Always do this directly from VS code, not from github.
 
 #   PROTEIN-ROCKS!
 
@@ -145,11 +144,6 @@ Example:
 - splachScreen
 - gameScreen
 -  gameOverScreen
-
-# Tasks (Optional)
-
-- List of individual Tasks you will need to finish the game from zero to an amazing game!
-- Note: If using Trello or github proyect to keep track of tasks, then you can remove this section.
 
 # Extra Links (The links can be added later when available)
 
