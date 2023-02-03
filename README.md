@@ -2,7 +2,7 @@
 #   PROTEIN-ROCKS!
 
 
-## [See the Game](www.your-url-here.com)
+## [See the Game](https://dagmaro.github.io/Protein-rocks-/)
 NOTE: above link will be added later
 
 # Description
